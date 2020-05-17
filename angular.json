@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FSM-FRONT"
+    }
+  },
+  "defaultProject": "FSM-FRONT",
+  "cli": {
+    "analytics": false
+  }
 }

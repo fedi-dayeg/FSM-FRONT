@@ -1,0 +1,12 @@
+<div class="ui accordion styled">
+  <ng-container *ngFor="let item of items; let i = index">
+    <div [ngClass]="{active: i === openedItemIndex}" class="title" (click)="onClick(i)">
+      <i class="dropdown icon"></i>
+      {{item.titre}}
+    </div>
+    <div [ngClass]="{active: i === openedItemIndex}" class="content">
+      <div class="ui mini label">{{item.date | date: 'short'}}</div>
+      <p class="text">{{item.description}}</p>
+    </div>
+  </ng-container>
+</div>
