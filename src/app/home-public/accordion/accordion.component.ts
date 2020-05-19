@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class AccordionComponent implements OnInit {
   @Input() items = [];
-  openedItemIndex = 0;
+  openedItemIndex = -1;
 
   constructor() {
   }

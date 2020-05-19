@@ -2,6 +2,8 @@ import {Router, RouterModule, Routes} from '@angular/router';
 import {HomeIndexComponent} from './home-index/home-index.component';
 import {NgModule} from '@angular/core';
 import {NouveautesComponent} from './nouveautes/nouveautes.component';
+import {ManifestationDetailComponent} from './manifestation-detail/manifestation-detail.component';
+import {ManifestationDetailIndexComponent} from './manifestation-detail-index/manifestation-detail-index.component';
 
 const routes: Routes = [
   {
@@ -10,7 +12,11 @@ const routes: Routes = [
   },
   {
     path: 'nouveaute',
-    component: NouveautesComponent
+    component: NouveautesComponent,
+  },
+  {
+    path: 'manifestation/:id',
+    component: ManifestationDetailIndexComponent,
   }
 ];
 

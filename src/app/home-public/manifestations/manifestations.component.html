@@ -1,14 +1,16 @@
-
-  <div class="ui card">
-    <div class="content">
-      <div class="description">
-        <p>Deuxième édition des Journées des Doctorants - JDD 2020</p>
+<h4 class="ui horizontal divider header">
+  <i class="clipboard check icon"></i>
+  Manifestations
+</h4>
+<div class="ui card">
+  <div class="content">
+    <div class="description">
+      <div class="ui vertical text menu" *ngFor="let manifestations of manifestation">
+        <p><a [routerLink]="['/manifestation',manifestations.id]" target="_blank" class="item">{{manifestations.titre}}</a></p>
       </div>
-      <div class="description">
-        <p>Deuxième édition des Journées des Doctorants - JDD 2020</p>
-      </div>
-    </div>
-    <div class="extra content ">
-      <button class="ui mini right floated primary button">Right Floated</button>
     </div>
   </div>
+  <div class="extra content ">
+    <button class="ui mini right floated primary button">Right Floated</button>
+  </div>
+</div>

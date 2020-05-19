@@ -12,10 +12,12 @@ import {ImageSliderComponent} from './image-slider/image-slider.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { EspaceIntranetComponent } from './espace-intranet/espace-intranet.component';
 import { AccordionComponent } from './accordion/accordion.component';
+import { ManifestationDetailComponent } from './manifestation-detail/manifestation-detail.component';
+import { ManifestationDetailIndexComponent } from './manifestation-detail-index/manifestation-detail-index.component';
 
 
 @NgModule({
-  declarations: [NavBarComponent, HomeIndexComponent, SliderComponent, ActualitesComponent, ManifestationsComponent, MajComponent, NouveautesComponent, ImageSliderComponent, EspaceIntranetComponent, AccordionComponent],
+  declarations: [NavBarComponent, HomeIndexComponent, SliderComponent, ActualitesComponent, ManifestationsComponent, MajComponent, NouveautesComponent, ImageSliderComponent, EspaceIntranetComponent, AccordionComponent, ManifestationDetailComponent, ManifestationDetailIndexComponent],
   exports: [
     NavBarComponent
   ],

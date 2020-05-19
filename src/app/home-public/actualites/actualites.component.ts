@@ -14,7 +14,6 @@ export class ActualitesComponent implements OnInit {
 
   ngOnInit(): void {
     this.homePublicService.getActualite().subscribe((response: Array<Acualite>) => {
-      console.log(response);
       this.items = response;
     });
   }
