@@ -3,12 +3,14 @@ import {HomePublicService} from '../home-public.service';
 import {Manifestations} from '../../Interface/manifestations';
 
 @Component({
-  selector: 'app-manifestations',
-  templateUrl: './manifestations.component.html',
-  styleUrls: ['./manifestations.component.css']
+  selector: 'app-manifestations-card',
+  templateUrl: './manifestations-card.component.html',
+  styleUrls: ['./manifestations-card.component.css']
 })
-export class ManifestationsComponent implements OnInit {
+export class ManifestationsCardComponent implements OnInit {
   manifestation: Manifestations[];
+  totlRecord: number;
+  page = 1;
 
   constructor(private homePublicService: HomePublicService) {
   }
@@ -16,7 +18,7 @@ export class ManifestationsComponent implements OnInit {
   ngOnInit(): void {
     this.homePublicService.getManifestation().subscribe((manifestations: Array<Manifestations>) => {
       this.manifestation = manifestations;
+      this.totlRecord = manifestations.length;
     });
   }
-
 }

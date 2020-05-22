@@ -6,7 +6,7 @@
     </div>
     <div [ngClass]="{active: i === openedItemIndex}" class="content">
       <div class="ui mini label">{{item.date | date: 'short'}}</div>
-      <p class="text" [innerHTML]="item.description">{{item.description}}</p>
+      <p class="text" [innerHTML]="item.description | truncate: [200]"></p>
     </div>
   </ng-container>
 </div>

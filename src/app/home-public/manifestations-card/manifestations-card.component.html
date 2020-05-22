@@ -1,0 +1,25 @@
+<div class="ui stacked segment" *ngFor="let manifestations of manifestation | paginate: {id: 'listing_pagination',
+ itemsPerPage: 10, currentPage: page, totalItems: totlRecord}">
+  <div class="ui items">
+    <div class="item">
+      <div class="ui small image">
+        <img src="/assets/img/cardlogo.png">
+      </div>
+      <div class="middle aligned content">
+        <div class="header">
+          {{manifestations.titre}}
+        </div>
+        <div class="description">
+          <p [innerHTML]="manifestations.description | truncate:[300]"></p>
+        </div>
+        <div class="extra">
+          <div class="ui right floated button" [routerLink]="['/manifestation',manifestations.id]">
+            En savoir plus
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<pagination-controls id="listing_pagination" previousLabel="Previous" nextLabel="Next" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>

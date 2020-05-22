@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {HomePublicService, MAnifestationApiResponse, Manifestations} from '../home-public.service';
+import {HomePublicService} from '../home-public.service';
+import {Manifestations} from '../../Interface/manifestations';
 
 @Component({
   selector: 'app-manifestation-detail',
@@ -16,7 +17,7 @@ manifestation: any = [];
     console.log(id);
     this.homePublicService.getManifestationDetail(id).subscribe((response: Array<Manifestations>) => {
       console.log(this.manifestation = response);
-      this.manifestation[0] = response;
+      this.manifestation = response;
     });
 
   }

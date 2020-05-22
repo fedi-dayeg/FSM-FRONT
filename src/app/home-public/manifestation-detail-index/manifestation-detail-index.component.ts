@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HomePublicService, Manifestations} from '../home-public.service';
+import {HomePublicService} from '../home-public.service';
+import {Manifestations} from '../../Interface/manifestations';
 
 @Component({
   selector: 'app-manifestation-detail-index',

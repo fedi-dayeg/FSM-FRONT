@@ -1,26 +1,12 @@
 import {Injectable} from '@angular/core';
-import {Observable, of, Subject} from 'rxjs';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import {map, mergeMap, pluck, share, switchMap, toArray} from 'rxjs/operators';
+import {Observable, throwError} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {catchError, map} from 'rxjs/operators';
+import {Actualite} from '../Interface/actualite';
+import {AcutaliteApiResponse} from '../Interface/acutalite-api-response';
+import {Manifestations} from '../Interface/manifestations';
+import {MAnifestationApiResponse} from '../Interface/manifestation-api-response';
 
-export interface Acualite {
-  titre: string;
-  description: string;
-}
-
-export interface AcutaliteApiResponse {
-  data: Array<Acualite>;
-}
-
-export interface Manifestations {
-  titre: string;
-  id: number;
-  date: string;
-}
-
-export interface MAnifestationApiResponse {
-  data: Array<Manifestations>;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -30,27 +16,35 @@ export class HomePublicService {
   private pageSize: 10;
   private id: number;
 
+  private formatError(error: any) {
+    return throwError(error.error);
+  }
+
 
   constructor(private http: HttpClient) {
   }
 
   // service for get all the Actualite
-  getActualite() {
+  getActualite(): Observable<Actualite[]> {
     return this.http.get<AcutaliteApiResponse>(this.url + '/actualite').pipe(
       map((response => response.data)),
+      catchError(this.formatError)
     );
   }
 
-  getManifestation() {
+  // Service for get All the manifestations
+  getManifestation(): Observable<Manifestations[]> {
     return this.http.get<MAnifestationApiResponse>(this.url + '/manifestationtitle').pipe(
-      map((response => response.data))
+      map((response => response.data)),
+      catchError(this.formatError)
     );
   }
 
-
-  getManifestationDetail(id: string) {
+  // Service for get Manifestations by her Id
+  getManifestationDetail(id: string): Observable<Manifestations[]> {
     return this.http.get<MAnifestationApiResponse>(`${this.url}/manifestation/${id}`).pipe(
-      map((response => response.data))
+      map((response => response.data)),
+      catchError(this.formatError)
     );
   }
 }

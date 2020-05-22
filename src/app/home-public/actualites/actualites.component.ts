@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Acualite, AcutaliteApiResponse, HomePublicService} from '../home-public.service';
+import {HomePublicService} from '../home-public.service';
 import validate = WebAssembly.validate;
+import {Actualite} from '../../Interface/actualite';
 
 @Component({
   selector: 'app-actualites',
@@ -9,11 +10,11 @@ import validate = WebAssembly.validate;
 })
 export class ActualitesComponent implements OnInit {
 
-  items: Acualite[];
+  items: Actualite[];
   constructor(private homePublicService: HomePublicService) { }
 
   ngOnInit(): void {
-    this.homePublicService.getActualite().subscribe((response: Array<Acualite>) => {
+    this.homePublicService.getActualite().subscribe((response: Array<Actualite>) => {
       this.items = response;
     });
   }

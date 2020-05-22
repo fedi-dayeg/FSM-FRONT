@@ -4,6 +4,7 @@ import {NgModule} from '@angular/core';
 import {NouveautesComponent} from './nouveautes/nouveautes.component';
 import {ManifestationDetailComponent} from './manifestation-detail/manifestation-detail.component';
 import {ManifestationDetailIndexComponent} from './manifestation-detail-index/manifestation-detail-index.component';
+import {ManifestationsPageComponent} from './manifestations-page/manifestations-page.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'manifestation/:id',
     component: ManifestationDetailIndexComponent,
+  },
+  {
+    path: 'manifestation',
+    component: ManifestationsPageComponent
   }
 ];
 
