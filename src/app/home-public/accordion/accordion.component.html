@@ -7,6 +7,9 @@
     <div [ngClass]="{active: i === openedItemIndex}" class="content">
       <div class="ui mini label">{{item.date | date: 'short'}}</div>
       <p class="text" [innerHTML]="item.description | truncate: [200]"></p>
+      <button class="ui mini button" (click)="itemId(item.id)">
+        <i class="plus icon"></i>
+      </button>
     </div>
   </ng-container>
 </div>

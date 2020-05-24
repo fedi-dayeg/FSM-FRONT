@@ -6,6 +6,8 @@ import {Actualite} from '../Interface/actualite';
 import {AcutaliteApiResponse} from '../Interface/acutalite-api-response';
 import {Manifestations} from '../Interface/manifestations';
 import {MAnifestationApiResponse} from '../Interface/manifestation-api-response';
+import {Maj} from '../Interface/maj';
+import {MajApiResponse} from '../Interface/maj-api-response';
 
 
 @Injectable({
@@ -43,6 +45,30 @@ export class HomePublicService {
   // Service for get Manifestations by her Id
   getManifestationDetail(id: string): Observable<Manifestations[]> {
     return this.http.get<MAnifestationApiResponse>(`${this.url}/manifestation/${id}`).pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // Service call for get Actualite bu Id
+  getActualiteDetail(id: string): Observable<Actualite[]> {
+    return this.http.get<AcutaliteApiResponse>(`${this.url}/actualite/${id}`).pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // Service to get Maj
+  getMaj(): Observable<Maj[]> {
+    return this.http.get<MajApiResponse>(this.url + '/maj').pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // Service For Get Maj Bu Id
+  getMajDetail(id:string): Observable<Maj[]> {
+    return this.http.get<MajApiResponse>(`${this.url}/maj/${id}`).pipe(
       map((response => response.data)),
       catchError(this.formatError)
     );

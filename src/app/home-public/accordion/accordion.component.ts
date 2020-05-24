@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-accordion',
@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class AccordionComponent implements OnInit {
   @Input() items = [];
   openedItemIndex = -1;
+  @Output() clicked = new EventEmitter();
 
   constructor() {
   }
@@ -21,6 +22,10 @@ export class AccordionComponent implements OnInit {
     } else {
       this.openedItemIndex = index;
     }
+  }
+
+  itemId(id: string) {
+    this.clicked.emit(id);
   }
 
 }

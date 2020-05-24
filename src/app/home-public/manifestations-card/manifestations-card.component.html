@@ -1,3 +1,4 @@
+<app-loader *ngIf="!manifestation"></app-loader>
 <div class="ui stacked segment" *ngFor="let manifestations of manifestation | paginate: {id: 'listing_pagination',
  itemsPerPage: 10, currentPage: page, totalItems: totlRecord}">
   <div class="ui items">

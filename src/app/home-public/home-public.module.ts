@@ -20,6 +20,10 @@ import {TruncatePipe} from './truncate.pipe';
 import {ManifestationsCardComponent} from './manifestations-card/manifestations-card.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {NouveautesCardComponent} from './nouveautes-card/nouveautes-card.component';
+import { ActualiteDetailComponent } from './actualite-detail/actualite-detail.component';
+import { ActualiteDetailIndexComponent } from './actualite-detail-index/actualite-detail-index.component';
+import { MajDetailIndexComponent } from './maj-detail-index/maj-detail-index.component';
+import { MajDetailComponent } from './maj-detail/maj-detail.component';
 
 
 @NgModule({
@@ -39,7 +43,11 @@ import {NouveautesCardComponent} from './nouveautes-card/nouveautes-card.compone
     ManifestationsPageComponent,
     TruncatePipe,
     ManifestationsCardComponent,
-    NouveautesCardComponent
+    NouveautesCardComponent,
+    ActualiteDetailComponent,
+    ActualiteDetailIndexComponent,
+    MajDetailIndexComponent,
+    MajDetailComponent
   ],
   exports: [
     NavBarComponent

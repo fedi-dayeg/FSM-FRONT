@@ -1,1 +1,21 @@
-<p>maj works!</p>
+<h4 class="ui horizontal divider header">
+  <i class="sync icon"></i>
+  Dernières mise à jour
+</h4>
+<app-loader *ngIf="!majs"></app-loader>
+<div class="ui card">
+  <div class="content">
+    <div class="description">
+      <div class="ui vertical text menu" *ngFor="let maj of majs">
+        <p><a [routerLink]="['/maj',maj.id]" target="_blank" class="item">
+          {{maj.titre}}</a>
+        </p>
+        <div class="ui mini label">{{maj.date | date: 'short'}}</div>
+        <div class="ui divider"></div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="extra content ">
+    <button routerLink="/manifestation" class="ui mini right floated primary button">Plus d'évènemants</button>
+  </div>-->
+</div>

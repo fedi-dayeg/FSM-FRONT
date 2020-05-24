@@ -2,4 +2,5 @@
   <i class="calendar alternate icon"></i>
   Actualités
 </h4>
-<app-accordion [items]="items"></app-accordion>
+<app-loader *ngIf="!items"></app-loader>
+<app-accordion [items]="items" (clicked)="onClicked($event)"></app-accordion>

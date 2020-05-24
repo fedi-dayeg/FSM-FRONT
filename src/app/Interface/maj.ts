@@ -1,5 +1,6 @@
-export interface Actualite {
+export interface Maj {
   id: number;
+  date: string;
   titre: string;
   description: string;
 }

@@ -1,0 +1,9 @@
+<h4 class="ui horizontal divider header">
+  <i class="calendar alternate icon"></i>
+  {{actualite.titre}}
+</h4>
+<div class="ui mini label">{{actualite.date | date: 'short'}}</div>
+
+<div [innerHTML]="actualite.description" class="ui piled segment">
+
+</div>

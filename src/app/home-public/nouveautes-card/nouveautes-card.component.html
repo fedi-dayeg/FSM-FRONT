@@ -1,3 +1,4 @@
+<app-loader *ngIf="!actualite"></app-loader>
 <div class="ui stacked segment" *ngFor="let acualites of actualite | paginate: {id: 'listing_pagination',
  itemsPerPage: 10, currentPage: page, totalItems: totlRecord}">
   <div class="ui items">
@@ -13,9 +14,9 @@
           <p [innerHTML]="acualites.description | truncate:[300]"></p>
         </div>
         <div class="extra">
-         <!-- <div class="ui right floated button" [routerLink]="['/manifestation',acualites.id]">
+         < <div class="ui right floated button" [routerLink]="['/actualite',acualites.id]">
             En savoir plus
-          </div>-->
+          </div>
         </div>
       </div>
     </div>
