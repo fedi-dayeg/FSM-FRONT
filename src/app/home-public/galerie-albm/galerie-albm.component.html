@@ -1,0 +1,15 @@
+<div class="ui grid" >
+  <div class="four wide column" *ngFor="let album of albums">
+<div class="ui link cards" (click)="onClick(album.idAlbum)">
+  <div class="card">
+    <div class="image">
+      <img [src]="imageUri + album.imageAlbumPath">
+    </div>
+    <div class="content">
+      <div class="header">{{album.label}}</div>
+    </div>
+  </div>
+</div>
+  </div>
+
+</div>

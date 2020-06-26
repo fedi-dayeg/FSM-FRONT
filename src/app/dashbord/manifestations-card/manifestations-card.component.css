@@ -1,0 +1,64 @@
+.card-counter{
+  box-shadow: 2px 2px 10px #DADADA;
+  margin: 5px;
+  padding: 20px 10px;
+  background-color: #fff;
+  height: 200px;
+  border-radius: 5px;
+  transition: .3s linear all;
+}
+
+.card-counter:hover{
+  box-shadow: 4px 4px 20px #404040;
+  transition: .3s linear all;
+}
+
+.card-counter.primary{
+  background-color: #007bff;
+  color: #FFF;
+}
+
+.card-counter.danger{
+  background-color: #ef5350;
+  color: #FFF;
+}
+
+
+.card-counter i{
+  font-size: 5em;
+  opacity: 0.6;
+  padding-left: 118px;
+}
+
+.card-counter .count-numbers{
+  position: inherit;
+  right: 35px;
+  top: 20px;
+  font-size: 32px;
+  display: block;
+  text-align: center;
+}
+
+.card-counter .count-name{
+  position: absolute;
+  right: 35px;
+  top: 65px;
+  font-style: italic;
+  text-transform: capitalize;
+  opacity: 0.5;
+  display: block;
+  font-size: 18px;
+}
+.btn-ajout{
+  position: absolute;
+  left: 35px;
+  bottom: 17px;
+  font-weight: bold;
+}
+
+.btn-consulter {
+  position: absolute;
+  bottom: 17px;
+  right: 35px;
+  font-weight: bold;
+}

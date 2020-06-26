@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row my-3">
+    <div class="col-md-4">
+      <div class="card text-center h-100">
+        <div class="card-block">
+          <div class="p-4">
+          <h4 class="card-title"> Actualités Total</h4>
+          </div>
+          <h2><i class="fa fa-list-alt fa-3x"></i></h2>
+        </div>
+        <div class="row px-2 no-gutters">
+          <div class="col-12">
+            <div class="m-3" *ngFor="let actualite of actualites">
+              <h3 class="card card-block border-0">{{actualite.actualiteCount}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center h-100">
+        <div class="card-block">
+          <div class="p-4">
+          <h4 class="card-title">Manifestations Total</h4>
+          </div>
+          <h2><i class="fa fa-leanpub fa-3x"></i></h2>
+
+        </div>
+        <div class="row px-2 no-gutters">
+          <div class="col-12">
+            <div class="m-3" *ngFor="let manifestation of manifestations ">
+              <h3 class="card card-block border-0">{{manifestation.manifestationCount}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card text-center h-100">
+        <div class="card-block">
+          <div class="p-4">
+            <h4 class="card-title">Mise a jours Total</h4>
+          </div>
+          <h2><i class="fa fa-refresh fa-3x"></i></h2>
+
+        </div>
+        <div class="row px-2 no-gutters">
+          <div class="col-12">
+            <div class="m-3" *ngFor="let maj of majs">
+              <h3 class="card card-block border-0">{{maj.majCount}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

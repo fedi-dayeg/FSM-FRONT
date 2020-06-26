@@ -8,6 +8,9 @@ import {ManifestationsPageComponent} from './manifestations-page/manifestations-
 import {ActualiteDetailComponent} from './actualite-detail/actualite-detail.component';
 import {ActualiteDetailIndexComponent} from './actualite-detail-index/actualite-detail-index.component';
 import {MajDetailIndexComponent} from './maj-detail-index/maj-detail-index.component';
+import {GalerieIndexComponent} from './galerie-index/galerie-index.component';
+import {GalerieImageIndexComponent} from './galerie-image-index/galerie-image-index.component';
+
 
 const routes: Routes = [
   {
@@ -34,6 +37,14 @@ const routes: Routes = [
     path: 'maj/:id',
     component: MajDetailIndexComponent
   },
+  {
+    path: 'galerie',
+    component: GalerieIndexComponent
+  },
+  {
+    path: 'images/:id',
+    component: GalerieImageIndexComponent
+  }
 
 ];
 

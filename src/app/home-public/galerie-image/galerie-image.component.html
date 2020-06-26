@@ -1,0 +1,9 @@
+<div class="ui three column grid">
+  <div class="column" *ngFor="let image of images">
+    <div class="ui fluid card">
+      <div class="image">
+        <img [src]="imageUri + image.imagePath">
+      </div>
+    </div>
+  </div>
+</div>

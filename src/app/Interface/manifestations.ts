@@ -3,4 +3,5 @@ export interface Manifestations {
   id: number;
   date: string;
   description: string;
+  manifestationCount: string;
 }

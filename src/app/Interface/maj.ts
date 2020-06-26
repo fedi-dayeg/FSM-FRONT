@@ -3,4 +3,5 @@ export interface Maj {
   date: string;
   titre: string;
   description: string;
+  majCount: string;
 }

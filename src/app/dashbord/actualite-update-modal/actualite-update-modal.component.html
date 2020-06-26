@@ -1,0 +1,29 @@
+<div (click)="onDismissClick()" class="ui dimmer visible active">
+  <div (click)="$event.stopPropagation()" class="ui  modal active">
+    <i class="close icon" (click)="onDismissClick()"></i>
+    <div class="content">
+      <form [formGroup]="actualitForm" (ngSubmit)="onFormSubmit()" class="ui form">
+        <div class="ui fluid input">
+          <div class="ui big label">
+            Titre
+          </div>
+          <input type="text" formControlName="titre" placeholder="Titre" [formControl]="actualitForm.get('titre')">
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui fluid input">
+          <div class="ui big label">
+            Date
+          </div>
+          <input type="date" formControlName="date" [formControl]="actualitForm.get('date')">
+        </div>
+        <div class="ui divider"></div>
+
+
+        <quill-editor formControlName="description" [strict]="true" format="html" [style]="editorStyle" [modules]="config" [sanitize]="true" ></quill-editor>
+        <div>
+          <button class="ui submit button primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

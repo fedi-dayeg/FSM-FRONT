@@ -1,0 +1,14 @@
+
+.actions:empty {
+  display: none;
+}
+
+.actions:empty + .actions-default {
+  display: block;
+  position: initial;
+}
+.ui.active.modal {
+  display: block;
+  position: initial;
+}
+

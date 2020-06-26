@@ -8,6 +8,10 @@ import {Manifestations} from '../Interface/manifestations';
 import {MAnifestationApiResponse} from '../Interface/manifestation-api-response';
 import {Maj} from '../Interface/maj';
 import {MajApiResponse} from '../Interface/maj-api-response';
+import {Albums} from '../Interface/albums';
+import {AlbumsApiResponse} from '../Interface/albums-api-response';
+import {Image} from '../Interface/image';
+import {ImageApiResponse} from '../Interface/image-api-response';
 
 
 @Injectable({
@@ -23,7 +27,7 @@ export class HomePublicService {
   }
 
 
-  constructor(private http: HttpClient) {
+    constructor(private http: HttpClient) {
   }
 
   // service for get all the Actualite
@@ -67,11 +71,26 @@ export class HomePublicService {
   }
 
   // Service For Get Maj Bu Id
-  getMajDetail(id:string): Observable<Maj[]> {
+  getMajDetail(id: string): Observable<Maj[]> {
     return this.http.get<MajApiResponse>(`${this.url}/maj/${id}`).pipe(
       map((response => response.data)),
       catchError(this.formatError)
     );
   }
+
+  getAlbums(): Observable<Albums[]> {
+    return this.http.get<AlbumsApiResponse>(this.url + '/albums').pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  getImageByAlbumId(id: string): Observable<Image[]> {
+    return this.http.get<ImageApiResponse>(`${this.url}/images/${id}`).pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
 }
+
 

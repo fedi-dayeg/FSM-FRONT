@@ -19,6 +19,7 @@ export class ActualitesComponent implements OnInit {
   ngOnInit(): void {
     this.homePublicService.getActualite().subscribe((response: Array<Actualite>) => {
       this.items = response;
+      console.log(this.items);
     });
   }
 
