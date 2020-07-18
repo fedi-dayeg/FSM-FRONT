@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./manifestations-card.component.css']
 })
 export class ManifestationsCardComponent implements OnInit {
-
+  showModal = false;
   constructor() { }
 
   ngOnInit(): void {

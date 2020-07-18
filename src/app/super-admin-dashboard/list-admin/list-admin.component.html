@@ -1,0 +1,40 @@
+<app-sper-admin-home-dachboard></app-sper-admin-home-dachboard>
+<div class="container">
+  <h2 class="ui header">
+    <i class="user md icon"></i>
+    <div class="content">
+     Admin opération
+    </div>
+  </h2>
+    <div class="ui divider"></div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Email</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Opération</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let admin of admins">
+          <td>{{admin.id}}</td>
+          <td>{{admin.email}}</td>
+          <td>{{admin.nom}}</td>
+          <td>{{admin.prenom}}</td>
+          <td>
+            <button type="button" class="btn btn-primary" [routerLink]="['/dashboardadmin/admin/', admin.id]"><i  class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+
+            <button type="button" class="btn btn-danger ml-4" (click)="deleteAdmin(admin.id); $event.stopPropagation()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+          </td>
+        </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

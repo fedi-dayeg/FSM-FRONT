@@ -1,0 +1,44 @@
+<app-side-nav></app-side-nav>
+<div class="container">
+  <h2 class="ui header">
+    <i class="user md icon"></i>
+    <div class="content">
+      Etudiants opération
+    </div>
+  </h2>
+  <div class="ui divider"></div>
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">nom</th>
+          <th scope="col">prenom</th>
+          <th scope="col">email</th>
+          <th scope="col">Etat Activation Compte</th>
+          <th scope="col">Opération</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let etudiant of etudiants">
+          <td>{{etudiant.id}}</td>
+          <td>{{etudiant.nom}}</td>
+          <td>{{etudiant.prenom}}</td>
+          <td>{{etudiant.email}}</td>
+          <!--<td>{{etudiant.activate}}</td>-->
+          <td *ngIf="etudiant.activate == '0' ">Pas Activer</td>
+          <td *ngIf="etudiant.activate == '1'">Activer</td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="unlock(etudiant.id)"><i  class="fa fa-unlock" aria-hidden="true"></i></button>
+
+            <button type="button" class="btn btn-danger ml-4" (click)="deleteEtudiant(etudiant.id); $event.stopPropagation()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+          </td>
+        </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

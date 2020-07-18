@@ -8,6 +8,10 @@ import {Actualite} from '../Interface/actualite';
 import {AcutaliteApiResponse} from '../Interface/acutalite-api-response';
 import {Maj} from '../Interface/maj';
 import {MajApiResponse} from '../Interface/maj-api-response';
+import {AuthenticationService} from './authentication.service';
+
+import {Etudiants} from '../Interface/etudiants';
+import {EtudiantsApiResponse} from '../Interface/etudiants-api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -47,13 +51,14 @@ export class DashboardService {
   }
 
   // Service to Post a new Actualités
-  addManifestation(manifestations: Manifestations) {
+  addActualite(actualite: Actualite) {
+
     const headers = new HttpHeaders().set('Content-Type', 'text/plain; charset=utf-8');
     return this.http.post(this.url + '/addactualite', {
-      titre: manifestations.titre,
-      date: manifestations.date,
-      description: manifestations.description
-    });
+      titre: actualite.titre,
+      date: actualite.date,
+      description: actualite.description
+    }/*, {headers: new HttpHeaders().set('Authorization', `Bearer ${currentAdmin.token}`)}*/);
   }
 
   // Service to get all the Actualite
@@ -80,6 +85,7 @@ export class DashboardService {
     );
   }
 
+  // Service to update Actualite
   updateActualite(id: string, actualite: Actualite) {
 
     return this.http.put(this.url + `/updateact/${id}`, {
@@ -89,4 +95,116 @@ export class DashboardService {
     });
   }
 
+  // Service to Post a new Manifestation
+  addManifestation(actualite: Actualite) {
+    return this.http.post(this.url + '/addmanifestation', {
+      titre: actualite.titre,
+      date: actualite.date,
+      description: actualite.description
+    });
+  }
+
+  // Service to get all the Manifestation
+  getManifestation(): Observable<Manifestations[]> {
+    return this.http.get<MAnifestationApiResponse>(this.url + '/manifestation').pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // Sevice to delete Manifestation
+  deleteManifestation(id: string): Observable<Manifestations[]> {
+    return this.http.delete<MAnifestationApiResponse>(`${this.url}/deletman/${id}`).pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // Service call for get Manifestation bu Id
+  getManifestationDetail(id: string): Observable<Manifestations[]> {
+    return this.http.get<MAnifestationApiResponse>(`${this.url}/manifestation/${id}`).pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // Service to update Manifestation
+  updateManifestation(id: string, manifestation: Manifestations) {
+
+    return this.http.put(this.url + `/updateman/${id}`, {
+      titre: manifestation.titre,
+      date: manifestation.date,
+      description: manifestation.description
+    });
+  }
+
+  // Service to Post a new Maj
+  addMaj(maj: Maj) {
+    return this.http.post(this.url + '/addmaj', {
+      titre: maj.titre,
+      date: maj.date,
+      descriptions: maj.descriptions
+    });
+  }
+
+  // Sevice to delete Maj
+  deleteMaj(id: string): Observable<Maj[]> {
+    return this.http.delete<MajApiResponse>(`${this.url}/deletmaj/${id}`).pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // Service to update Maj
+  updateMaj(id: string, maj: Maj) {
+
+    return this.http.put(this.url + `/updatemaj/${id}`, {
+      titre: maj.titre,
+      date: maj.date,
+      descriptions: maj.descriptions
+    });
+  }
+
+  // Service to get all the majs
+  getAllMajs(): Observable<Maj[]> {
+    return this.http.get<MajApiResponse>(this.url + '/majs').pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // Service call for get Actualite bu Id
+  getMajDetail(id: string): Observable<Maj[]> {
+    return this.http.get<MajApiResponse>(`${this.url}/maj/${id}`).pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+
+  // Get All the Etudiants
+  getEtudiants(): Observable<Etudiants[]> {
+    return this.http.get<EtudiantsApiResponse>(this.url + '/etudiant/getall').pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // Unlock Etudiant
+  unlockEtudiants(id: number): Observable<Etudiants[]> {
+    return this.http.put<EtudiantsApiResponse>(`${this.url}/update/etudiant/${id}`, {}).pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
+
+  // delete Etudiants
+  deleteEtudiant(id: number): Observable<Etudiants[]> {
+    return this.http.delete<EtudiantsApiResponse>(`${this.url}/etudiant/delete/${id}`).pipe(
+      map((response => response.data)),
+      catchError(this.formatError)
+    );
+  }
 }
+
+

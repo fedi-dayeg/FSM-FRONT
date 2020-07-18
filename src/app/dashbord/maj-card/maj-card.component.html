@@ -3,11 +3,13 @@
   <i class="fa fa-refresh"></i>
 
   <div class="btn-ajout">
-    <button type="button" class="btn btn-outline-light">Ajouter</button>
+    <button (click)="showModal = true" type="button" class="btn btn-outline-light">Ajouter</button>
   </div>
 
   <div class="btn-consulter">
-    <button type="button" class="btn btn-outline-light">Consulter</button>
+    <button type="button" class="btn btn-outline-light" routerLink="/dashboard/maj/detail">Consulter</button>
   </div>
 
 </div>
+
+<app-maj-ajout-modal (dismiss)="showModal = false" *ngIf="showModal"></app-maj-ajout-modal>

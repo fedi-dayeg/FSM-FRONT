@@ -2,6 +2,6 @@ export interface Maj {
   id: number;
   date: string;
   titre: string;
-  description: string;
+  descriptions: string;
   majCount: string;
 }

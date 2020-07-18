@@ -1,0 +1,152 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">Register</div>
+        <div class="card-body">
+          <form name="my-form" (ngSubmit)="onSubmit()" [formGroup]="addEtudiant">
+            <div class="form-group row">
+              <label for="nom" class="col-md-4 col-form-label text-md-right">Nom</label>
+              <div class="col-md-6">
+                <input type="text" id="nom" class="form-control" name="full-name" formControlName="nom"
+                       placeholder="Votre Nom">
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.nom.touched || submitted) && AddedEtudiantFormControl.nom.errors?.required">Nom Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="prenom" class="col-md-4 col-form-label text-md-right">Prénom</label>
+              <div class="col-md-6">
+                <input type="text" id="prenom" class="form-control" name="full-name" formControlName="prenom"
+                       placeholder="Votre Prénom">
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.prenom.touched || submitted) && AddedEtudiantFormControl.prenom.errors?.required">Prénom Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="cin" class="col-md-4 col-form-label text-md-right">CIN</label>
+              <div class="col-md-6">
+                <input type="number" id="cin" class="form-control" name="cin" formControlName="cin"
+                       placeholder="CIN">
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.cin.touched || submitted) && AddedEtudiantFormControl.cin.errors?.required">CIN Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="etat" class="col-md-4 col-form-label text-md-right">Etat</label>
+              <div class="col-md-6">
+                <input type="text" id="etat" class="form-control" name="etat" formControlName="etat"
+                       placeholder="Ex: Étudiant">
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.etat.touched || submitted) && AddedEtudiantFormControl.etat.errors?.required">Etat Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="grade" class="col-md-4 col-form-label text-md-right">Grade</label>
+              <div class="col-md-6">
+                <input type="text" id="grade" class="form-control" name="grade" formControlName="grade"
+                       placeholder="Ex: Ingénieur">
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.grade.touched || submitted) && AddedEtudiantFormControl.grade.errors?.required">Grade Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group row">
+              <label for="dateInscription" class="col-md-4 col-form-label text-md-right">Date Inscription</label>
+
+              <div class="col-md-6">
+                <input type="date" id="dateInscription" class="form-control" name="dateInscription" formControlName="dateInscription">
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.dateInscription.touched || submitted) && AddedEtudiantFormControl.dateInscription.errors?.required">Date Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group row">
+              <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+              <div class="col-md-6">
+                <input type="email" id="email" class="form-control" name="email" formControlName="email" placeholder="email@email.com">
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.email.touched || submitted) && AddedEtudiantFormControl.email.errors?.required">Email Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+              <div class="col-md-6">
+                <input type="password" id="password" class="form-control" name="password" formControlName="password" >
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.password.touched || submitted) && AddedEtudiantFormControl.password.errors?.required">Password Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="form-group row">
+              <label for="etablissement" class="col-md-4 col-form-label text-md-right">Etablissement</label>
+              <div class="col-md-6">
+                <input type="text" id="etablissement" class="form-control" name="etablissement" formControlName="etablissement"  placeholder="Ex: FSM">
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.etablissement.touched || submitted) && AddedEtudiantFormControl.etablissement.errors?.required">Etablissement Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label for="universite" class="col-md-4 col-form-label text-md-right">Université </label>
+              <div class="col-md-6">
+                <input type="text" id="universite" class="form-control" name="universite" formControlName="universite"  placeholder="Ex: FSM">
+                <div>
+                <span class="text-danger"
+                      *ngIf="(AddedEtudiantFormControl.universite.touched || submitted) && AddedEtudiantFormControl.universite.errors?.required">Université Obligatoire</span>
+                </div>
+              </div>
+            </div>
+
+
+           <input type="hidden" value="0" formControlName="activate">
+
+            <div class="col-md-6 offset-md-4">
+              <button type="submit" class="btn btn-primary">
+                Register
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

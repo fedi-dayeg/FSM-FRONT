@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-maj-card',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./maj-card.component.css']
 })
 export class MajCardComponent implements OnInit {
+  showModal = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

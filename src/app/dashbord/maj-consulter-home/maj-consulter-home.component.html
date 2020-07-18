@@ -1,0 +1,76 @@
+<app-side-nav></app-side-nav>
+
+<div class="p-3"></div>
+<div class="container">
+  <div class="row">
+    <h2 class="ui header">
+      <i class="eye icon"></i>
+      <div class="content">
+        Maj Details
+        <div class="sub header">Gérez vos Mise A jours </div>
+      </div>
+    </h2>
+  </div>
+  <div class="ui divider"></div>
+  <div class="p-3"></div>
+  <div class="row">
+
+    <table class="table table-bordered">
+      <thead>
+      <tr class="d-flex">
+        <th class="col-1">Id</th>
+        <th class="col-3">Titre</th>
+        <th class="col-6">Descriptions</th>
+        <th class="col-2">Operation</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  class="d-flex" *ngFor="let maj of majs | paginate: {id: 'listing_pagination',
+ itemsPerPage: 8, currentPage: p, totalItems: totalRecords}">
+        <td  class="col-1">{{maj.id}}</td>
+        <td class="col-3">{{maj.titre}}</td>
+        <td class="col-6" [innerHTML]="maj.descriptions | stringReduce: [100]"></td>
+
+        <td class="col-2">
+          <button type="button" class="btn btn-success " [routerLink]="['/dashboard/maj/detail', maj.id]"  (click)="updateMaj(maj.id); showModal = true"><i class="fa fa-pencil-square-o"></i></button>
+          <button type="button" class="btn btn-danger ml-4" (click)="deleteMaj(maj.id); $event.stopPropagation()"><i class="fa fa-trash"></i></button></td>
+      </tr>
+      </tbody>
+      <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="p = $event"></pagination-controls>
+    </table>
+
+
+  </div>
+</div>
+
+
+<div (click)="onDismissClick()" class="ui dimmer visible active" *ngIf="showModal">
+  <div (click)="$event.stopPropagation()" class="ui  modal active">
+    <i class="close icon" (click)="onDismissClick()"></i>
+    <div class="content">
+      <form [formGroup]="majForm" (ngSubmit)="onFormSubmit($event)" class="ui form">
+        <div class="ui fluid input">
+          <div class="ui big label">
+            Titre
+          </div>
+          <input type="hidden"   formControlName="id" [(ngModel)]="maj.id " >
+          <input type="text" formControlName="titre" placeholder="Titre" [ngModel]="maj.titre"  [formControl]="majForm.get('titre')">
+        </div>
+        <div class="ui divider"></div>
+        <div class="ui fluid input">
+          <div class="ui big label">
+            Date
+          </div>
+          <input type="date" formControlName="date" [ngModel]="maj.date |date:'yyyy-MM-dd'" [formControl]="majForm.get('date')">
+        </div>
+        <div class="ui divider"></div>
+
+
+        <quill-editor formControlName="descriptions" [ngModel]="maj.descriptions" [strict]="true" format="html" [style]="editorStyle" [modules]="config" [sanitize]="true" ></quill-editor>
+        <div>
+          <button class="ui submit button primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

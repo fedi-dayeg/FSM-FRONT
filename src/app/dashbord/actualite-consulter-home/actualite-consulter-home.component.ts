@@ -14,7 +14,7 @@ export class ActualiteConsulterHomeComponent implements OnInit, OnDestroy {
   actualites: Actualite[];
   actualite: any = [];
   actualiteUpdate: Actualite;
-  totalRecords: number;
+    totalRecords: number;
   p = 1;
   showModal = false;
 

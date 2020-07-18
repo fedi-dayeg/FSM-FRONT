@@ -1,5 +1,5 @@
 
-<div class="ui placeholder segment">
+<!--<div class="ui placeholder segment">-->
 
   <div class="column">
 
@@ -8,12 +8,35 @@
 
       <div class="ui large label">
         <i class="user circle outline icon"></i>
-        <label>Espace Intranet</label>
+        <label>Espace Etudiant</label>
       </div>
     </div>
   </div>
 
-  <div class="ui divider"></div>
+  <div class="ui cards">
+    <div class="card">
+      <div class="content">
+       <!-- <div class="header">-->
+          <div class="ui blue inverted segment">
+            <a [routerLink]="['/etudiant/register']" class="item">
+              <i class="images outline icon"> </i>
+              s'inscrire
+            </a>
+          </div>
+
+        <div class="ui blue inverted segment">
+          <a [routerLink]="['/galerie']" class="item">
+            <i class="images outline icon"> </i>
+            se connecter
+          </a>
+        </div>
+
+        </div>
+      </div>
+    </div>
+<!--  </div>-->
+
+  <!--<div class="ui divider"></div>
   <div class="column">
     <div class="ui form">
       <div class="field">
@@ -32,6 +55,6 @@
       </div>
       <div class="ui blue submit button">Login</div>
     </div>
-  </div>
+  </div>-->
 
-</div>
+<!--</div>-->

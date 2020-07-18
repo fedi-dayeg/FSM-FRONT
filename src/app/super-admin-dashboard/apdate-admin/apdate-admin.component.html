@@ -1,0 +1,50 @@
+<app-sper-admin-home-dachboard></app-sper-admin-home-dachboard>
+<div class="container">
+
+  <h2 class="ui header">
+    <i class="user md icon"></i>
+    <div class="content">
+      Modifier Admin
+    </div>
+  </h2>
+  <div class="ui divider"></div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-outline-secondary">
+        <div class="card-header">
+          <h3 class="mb-0">Modifier</h3>
+        </div>
+        <div class="card-body">
+          <form class="form" role="form" autocomplete="off" (ngSubmit)="onSubmit()" [formGroup]="updateAdminForm">
+            <div class="form-group">
+              <label for="inputName">Email</label>
+              <input type="email" class="form-control" id="inputName" placeholder="Votre Email" formControlName="email" [ngModel]="admin.email" [formControl]="updateAdminForm.get('email')"
+                     [class.is-invalid]="updateAdminForm.get('email').invalid && updateAdminForm.get('email').touched">
+
+
+            <div class="form-group">
+              <label for="inputVerify3">Nom</label>
+              <input type="text" class="form-control" id="inputVerify3" placeholder="Votre Nom" formControlName="nom" [ngModel]="admin.nom" [formControl]="updateAdminForm.get('nom')"
+                     [class.is-invalid]="updateAdminForm.get('nom').invalid && updateAdminForm.get('nom').touched">
+              <div>
+
+            </div>
+            <div class="form-group">
+              <label for="inputVerify4">Prenom</label>
+              <input type="text" class="form-control" id="inputVerify4" placeholder="Votre Prenom" formControlName="prenom" [ngModel]="admin.prenom" [formControl]="updateAdminForm.get('prenom')"
+                     [class.is-invalid]="updateAdminForm.get('prenom').invalid && updateAdminForm.get('prenom').touched">
+
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success btn-lg float-right">Ajouter</button>
+            </div>
+            </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

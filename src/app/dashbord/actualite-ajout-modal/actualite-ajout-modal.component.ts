@@ -3,6 +3,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Actualite} from '../../Interface/actualite';
 import {DashboardService} from '../dashboard.service';
 import {DomSanitizer} from '@angular/platform-browser';
+import {HttpClient} from '@angular/common/http';
+import {AuthenticationService} from '../authentication.service';
 
 @Component({
   selector: 'app-actualite-ajout-modal',
@@ -50,7 +52,7 @@ export class ActualiteAjoutModalComponent implements OnInit, OnDestroy {
     description: new FormControl('')
   });
 
-  constructor(private el: ElementRef, private dashboardService: DashboardService, private sanitized: DomSanitizer) {
+  constructor(private el: ElementRef, private dashboardService: DashboardService, private sanitized: DomSanitizer, private authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {
@@ -70,7 +72,9 @@ export class ActualiteAjoutModalComponent implements OnInit, OnDestroy {
 
   onFormSubmit() {
     console.log(this.actualitForm.value);
-    this.dashboardService.addManifestation(this.actualitForm.value).subscribe(() => {
+    const currentAdmin = this.authenticationService.currentAdminValue;
+    console.log(currentAdmin);
+    this.dashboardService.addActualite(this.actualitForm.value).subscribe(() => {
         this.dismiss.emit();
       }
     );
