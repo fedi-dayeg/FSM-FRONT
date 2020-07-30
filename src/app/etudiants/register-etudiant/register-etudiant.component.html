@@ -1,5 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<div class="container">
+<!--<div class="container">
   <div class="row justify-content-center mt-5">
     <div class="col-md-8">
       <div class="card">
@@ -149,4 +149,193 @@
     </div>
   </div>
 
+</div>-->
+
+
+<div class="page-wrapper bg-dark p-t-100 p-b-50">
+  <div class="wrapper wrapper--w900">
+    <div class="card card-6">
+      <div class="card-heading">
+        <h2 class="title">S'inscrire</h2>
+      </div>
+      <div class="card-body">
+        <form name="form" (ngSubmit)="onSubmit()" [formGroup]="addEtudiant">
+          <div class="form-row">
+            <div class="name">Nom</div>
+            <div class="value">
+              <input class="input--style-6" type="text" name="nom" formControlName="nom">
+              <div *ngIf="f.nom.touched && f.nom.invalid"  class="ui pointing red basic label">
+                <div *ngIf="f.nom.errors.required"> Nom Obligatoire </div>
+                <div *ngIf="f.nom.errors.minlength"> Min 2 charactére  </div>
+                <div *ngIf="f.nom.errors.maxlength"> Max 20 charactére  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="prenom">Prénom</div>
+            <div class="value">
+              <input class="input--style-6" type="text" name="prenom" formControlName="prenom">
+              <div *ngIf="f.prenom.touched && f.nom.invalid"  class="ui pointing red basic label">
+                <div *ngIf="f.prenom.errors.required"> prenom Obligatoire </div>
+                <div *ngIf="f.prenom.errors.minlength"> Min 2 charactére  </div>
+                <div *ngIf="f.prenom.errors.maxlength"> Max 20 charactére  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="cin">CIN</div>
+            <div class="value">
+              <input class="input--style-6" type="text" name="cin" formControlName="cin">
+              <div *ngIf="f.cin.touched && f.cin.invalid"  class="ui pointing red basic label">
+                <div *ngIf="f.cin.errors.required"> CIN Obligatoire </div>
+                <div *ngIf="f.cin.errors.maxlength"> Max 8 charactére  </div>
+                <div *ngIf="f.cin.errors.pattern"> CIN invalide  </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="etat">Etat</div>
+            <div class="value">
+              <select class="input--style-6 form-control "  name="etat" formControlName="etat">
+                <option *ngFor="let item of etatOption" [value]="item.name">{{item.name}}</option>
+              </select>
+              <div *ngIf="f.etat.touched && f.etat.invalid"  class="ui pointing red basic label">
+                <div *ngIf="f.etat.errors.required"> Etat Obligatoire </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="grade">Grade</div>
+            <div class="value">
+              <select class="input--style-6 form-control "  name="grade" formControlName="grade">
+                <option *ngFor="let item of gradeOptions" [value]="item.name">{{item.name}}</option>
+              </select>
+              <div *ngIf="f.grade.touched && f.grade.invalid"  class="ui pointing red basic label">
+                <div *ngIf="f.grade.errors.required"> Grade Obligatoire </div>
+              </div>
+            </div>
+          </div>
+
+
+            <div class="form-row">
+              <div class="specialite">Spécialité</div>
+              <div class="value">
+                <input class="input--style-6" type="text" name="specialite" formControlName="specialite">
+                <div *ngIf="f.specialite.touched && f.specialite.invalid"  class="ui pointing red basic label">
+                  <div *ngIf="f.specialite.errors.required"> Spécialité Obligatoire </div>
+                  <div *ngIf="f.specialite.errors.minlength"> Min 2 charactére  </div>
+                  <div *ngIf="f.specialite.errors.maxlength"> Max 20 charactére  </div>
+                </div>
+              </div>
+            </div>
+
+
+          <div class="form-row">
+            <div class="dateInscription">Date première inscription</div>
+            <div class="value">
+              <div class="input-group">
+              <input class="input--style-6 form-control" type="date" name="dateInscription" formControlName="dateInscription">
+              <div *ngIf="f.dateInscription.touched && f.dateInscription.invalid"  class="ui pointing red basic label">
+                <div *ngIf="f.dateInscription.errors.required"> Date première inscription Obligatoire </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Email</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="email" name="email" placeholder="example@email.com" formControlName="email">
+                <div *ngIf="f.email.touched && f.email.invalid"  class="ui pointing red basic label">
+                  <div *ngIf="f.email.errors.required"> Email Obligatoire </div>
+                  <div *ngIf="f.email.errors.email"> Email Invalide </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Password</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="password" name="password"  formControlName="password">
+                <div *ngIf="f.password.touched && f.password.invalid"  class="ui pointing red basic label">
+                  <div *ngIf="f.password.errors.required"> Password is required</div>
+                  <div *ngIf="f.password.errors?.invalidPassword">
+                    Le mot de passe doit contenir au moins 8 caractères, au moins 1 lettre majuscule, 1 lettre minuscule et 1 chiffre
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Confirm Password</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="password" name="confirmPassword"  formControlName="confirmPassword">
+                <div *ngIf="f.confirmPassword.touched && f.confirmPassword.invalid"  class="ui pointing red basic label">
+                  <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                  <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="name">Établissement</div>
+            <div class="value">
+              <input class="input--style-6" type="text" name="etablissement" formControlName="etablissement">
+              <div *ngIf="f.etablissement.touched && f.etablissement.invalid"  class="ui pointing red basic label">
+                <div *ngIf="f.etablissement.errors.required"> Établissement Obligatoire </div>
+                <div *ngIf="f.etablissement.errors.minlength"> Min 2 charactére  </div>
+                <div *ngIf="f.etablissement.errors.maxlength"> Max 20 charactére  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Université</div>
+            <div class="value">
+              <input class="input--style-6" type="text" name="universite" formControlName="universite">
+              <div *ngIf="f.universite.touched && f.universite.invalid"  class="ui pointing red basic label">
+                <div *ngIf="f.universite.errors.required"> Université Obligatoire </div>
+                <div *ngIf="f.universite.errors.minlength"> Min 2 charactére  </div>
+                <div *ngIf="f.universite.errors.maxlength"> Max 20 charactére  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button class="btn btn--radius-2 btn--blue-2" type="submit" (click)="modalOpen = true">S'inscrire</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
 </div>
+
+<sui-modal [isClosable]="true" *ngIf="modalOpen" [isBasic]="true"   (dismissed)="modalOpen = false" #modal class="modal" >
+  <div class="ui icon header">
+    <i class="chevron circle down icon"></i></div>
+  <div class="ui header" id="header">
+    <p>Votre demande a éte envoyé, attendez l'acceptation par l'administration</p>
+  </div>
+  <div class="actions" id="posButton">
+    <div class="large ui green ok inverted button" (click)="modal.approve('done');redirect() " autofocus>
+      <i class="chevron circle down icon"></i>
+      OK
+    </div>
+  </div>
+</sui-modal>
+

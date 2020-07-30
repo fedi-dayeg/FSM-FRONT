@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HomePublicModule} from './home-public/home-public.module';
 import {HttpClientModule} from '@angular/common/http';
+import {SuiModule} from 'ng2-semantic-ui';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
         AppRoutingModule,
         HomePublicModule,
         HttpClientModule,
+      SuiModule
     ],
     providers: [],
     exports: [

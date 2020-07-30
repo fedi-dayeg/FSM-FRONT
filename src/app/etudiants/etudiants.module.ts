@@ -5,6 +5,8 @@ import {EtudiantsRoutingModule} from './etudiants-routing.module';
 import { RegisterEtudiantComponent } from './register-etudiant/register-etudiant.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HomePublicModule} from '../home-public/home-public.module';
+import {SharedModule} from '../shared/shared.module';
+import {SuiModalModule} from 'ng2-semantic-ui';
 
 
 
@@ -14,7 +16,9 @@ import {HomePublicModule} from '../home-public/home-public.module';
     CommonModule,
     EtudiantsRoutingModule,
     ReactiveFormsModule,
-    HomePublicModule
+    HomePublicModule,
+    SharedModule,
+    SuiModalModule
   ]
 })
 export class EtudiantsModule { }

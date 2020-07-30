@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { LoaderComponent } from './loader/loader.component';
 import { InputComponent } from './input/input.component';
+import { ModalComponent } from './modal/modal.component';
 
 
 
 @NgModule({
-  declarations: [CardComponent, LoaderComponent, InputComponent],
+  declarations: [CardComponent, LoaderComponent, InputComponent, ModalComponent],
     exports: [
         CardComponent,
-        LoaderComponent
+        LoaderComponent,
+        ModalComponent
     ],
   imports: [
     CommonModule
